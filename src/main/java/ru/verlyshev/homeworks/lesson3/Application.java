@@ -23,8 +23,7 @@ public class Application {
     }
 
     static void greetings() {
-        var greetingWords = Arrays.asList("Hello", "World", "from", "Java");
-        greetingWords.forEach(System.out::println);
+        System.out.println("Hello\nWorld\nfrom\nJava");
     }
 
     static void checkSign(int a, int b, int c) {
