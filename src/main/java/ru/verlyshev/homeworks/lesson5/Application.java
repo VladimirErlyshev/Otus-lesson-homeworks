@@ -42,24 +42,21 @@ public class Application {
     }
 
     static void showArrayEqualityPoint(int[] arr) {
-        var result = "Нет точки эквивалентности в массиве";
-
-        if (arr.length < 2) {
-            System.out.println(result);
-        } else {
-            var leftPart = 0;
-            var sum = Arrays.stream(arr).sum();
-            for (int i = 0; i < arr.length; i++) {
-                leftPart += arr[i];
-                if (leftPart == sum - leftPart) {
-                    result = "Точка находится между элементами " + i + " и " + (i + 1);
-                    System.out.println(result);
-                    return;
-                }
-            }
-
-            System.out.println(result);
+        var sum = Arrays.stream(arr).sum();
+        if (arr.length < 2 || sum % 2 != 0) {
+            System.out.println("Нет точки эквивалентности в массиве");
+            return;
         }
+        var leftPart = 0;
+        for (int i = 0; i < arr.length; i++) {
+            leftPart += arr[i];
+            if (leftPart == sum - leftPart) {
+                System.out.println("Точка находится между элементами " + i + " и " + (i + 1));
+                return;
+            }
+        }
+
+        System.out.println("Нет точки эквивалентности в массиве");
     }
 
     static void showIsElementsOrdering(int[] arr, boolean isDescendingOrder) {
