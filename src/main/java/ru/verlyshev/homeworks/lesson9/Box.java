@@ -55,7 +55,7 @@ class Box {
         } else if (item.isEmpty()) {
             System.out.println("В коробке нет предмета");
         } else {
-            this.item = "";
+            item = "";
             System.out.println("Из коробки убран предмет");
         }
     }
