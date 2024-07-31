@@ -52,7 +52,7 @@ class Box {
     void removeItem() {
         if (!isOpen) {
             System.out.println("Предмет убрать нельзя, так как коробка закрыта");
-        } else if (this.item.isEmpty()) {
+        } else if (item.isEmpty()) {
             System.out.println("В коробке нет предмета");
         } else {
             this.item = "";
