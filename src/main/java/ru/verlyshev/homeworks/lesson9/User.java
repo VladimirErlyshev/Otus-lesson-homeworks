@@ -6,10 +6,10 @@ class User {
     private final String name;
     private final String surname;
     private final String lastName;
-    private final String birthYear;
+    private final int birthYear;
     private final String email;
 
-    public User(String surname, String name, String patronymic, String birthYear, String email) {
+    public User(String surname, String name, String patronymic, int birthYear, String email) {
         this.surname = surname;
         this.name = name;
         this.lastName = patronymic;
@@ -26,6 +26,6 @@ class User {
 
     public int getAge() {
         var currentYear = Year.now();
-        return Integer.parseInt(currentYear.toString()) - Integer.parseInt(birthYear);
+        return Integer.parseInt(currentYear.toString()) - birthYear;
     }
 }
