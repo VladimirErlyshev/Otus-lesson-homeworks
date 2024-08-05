@@ -4,6 +4,7 @@ public abstract class Animal {
     protected String name;
     protected double moveSpeed;
     protected double swimSpeed;
+    protected int swimRatio;
     protected double stamina;
     protected boolean isTired;
 
@@ -19,13 +20,29 @@ public abstract class Animal {
         var staminaAfterRun = stamina - distance;
         if (isTired || staminaAfterRun < 0) {
             isTired = true;
+            stamina = 0;
             showTired();
             return -1;
         } else {
             stamina = staminaAfterRun;
             var runningTime = distance / moveSpeed;
-            System.out.println(name + " пробежал дистнацию " + distance + " за время " + runningTime);
+            System.out.println(name + " пробежал дистанцию " + distance + " за время " + runningTime);
             return runningTime;
+        }
+    }
+
+    public double swim(int distance) {
+        var staminaAfterSwim = stamina - distance * swimRatio;
+        if (isTired || staminaAfterSwim < 0) {
+            isTired = true;
+            stamina = 0;
+            showTired();
+            return -1;
+        } else {
+            stamina = staminaAfterSwim;
+            var swimTime = distance / swimSpeed;
+            System.out.println(name + " проплыл дистанцию за время " + swimTime);
+            return swimTime;
         }
     }
 
@@ -44,6 +61,4 @@ public abstract class Animal {
             System.out.println("Животное не устало");
         }
     }
-
-    public abstract double swim(int distance);
 }
