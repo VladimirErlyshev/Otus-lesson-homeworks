@@ -17,5 +17,12 @@ public class Application {
             cat.eat(plate);
             cat.showInfo();
         });
+
+        plate.addFood(30);
+
+        Arrays.stream(cats).forEach(cat -> {
+            cat.eat(plate);
+            cat.showInfo();
+        });
     }
 }
