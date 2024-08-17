@@ -8,6 +8,7 @@ public class Cat {
     public Cat(String name, int appetite) {
         this.name = name;
         this.appetite = appetite;
+        isWellFed = false;
     }
 
     public void eat(Plate plate) {

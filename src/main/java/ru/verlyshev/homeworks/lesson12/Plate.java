@@ -10,11 +10,7 @@ public class Plate {
     }
 
     public void addFood(int addFoodAmount) {
-        if (currentFoodAmount + addFoodAmount > maxFoodAmount) {
-            currentFoodAmount = maxFoodAmount;
-        } else {
-            currentFoodAmount += addFoodAmount;
-        }
+        currentFoodAmount = Math.min(maxFoodAmount, (currentFoodAmount + addFoodAmount));
     }
 
     public boolean reduceFood(int reduceFoodAmount) {
