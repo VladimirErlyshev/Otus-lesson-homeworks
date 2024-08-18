@@ -35,7 +35,7 @@ public class Application {
                 new Employee("Petya", 35),
                 new Employee("Kolya", 25)
         );
-        System.out.println(getEmployeesName(employees));
+        System.out.println(getEmployeesNames(employees));
 
         //6
         getEmployeeOlderMinAge(employees, 30).forEach(System.out::println);
@@ -68,7 +68,7 @@ public class Application {
         list.replaceAll(v -> v + enlarger);
     }
 
-    static List<String> getEmployeesName(List<Employee> employees) {
+    static List<String> getEmployeesNames(List<Employee> employees) {
         return employees.stream().map(Employee::getName).toList();
     }
 
