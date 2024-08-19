@@ -16,7 +16,7 @@ public class Horse implements Transport {
             System.out.println("Лошадь прошла расстояние " + distance);
             return true;
         } else {
-            System.out.println("Лошадь не прошла указанную дистанцию");
+            System.out.println("Лошадь не прошла указанное расстояние");
             return false;
         }
     }
