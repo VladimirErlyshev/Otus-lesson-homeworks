@@ -1,7 +1,5 @@
 package ru.verlyshev.homeworks.lesson16;
 
-import ru.verlyshev.homeworks.lesson16.exceptions.NotContainsPhoneNumberException;
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -23,10 +21,10 @@ public class PhoneBook {
             return phoneBook.get(name);
         }
 
-        throw new NotContainsPhoneNumberException("В справочнике нет записи с таким именем");
+        return new HashSet<>();
     }
 
     public boolean containsPhoneNumber(String phoneNumber) {
-        return phoneBook.entrySet().stream().filter(entry -> entry.getValue().contains(phoneNumber)).toList().size() > 0;
+        return !phoneBook.entrySet().stream().filter(entry -> entry.getValue().contains(phoneNumber)).toList().isEmpty();
     }
 }
