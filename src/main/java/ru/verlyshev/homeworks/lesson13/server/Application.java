@@ -15,10 +15,11 @@ public class Application {
                 try (var clientSocket = server.accept()) {
                     var in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                     var out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
-
+                    out.write("Список допустимых операций: + сложить - вычесть * умножить / разделить. Введите выражение для подсчета, например 2 2 *\n");
+                    out.flush();
                     var message = in.readLine();
                     var data = message.split(" ");
-                    out.write("Результат операции " + calculate(data[0], data[1], data[2]));
+                    out.write("Результат операции " + calculate(data[0], data[1], data[2]) + "\n");
                     out.flush();
                 }
             }

@@ -12,11 +12,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             try (var clientSocket = new Socket("localhost", 8888)) {
+                System.out.println("Клиент запущен");
                 var reader = new BufferedReader(new InputStreamReader(System.in));
                 var in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 var out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
-
-                System.out.println("Введите два числа через пробел и знак требуемой операции, например 2 2 +");
+                var operation = in.readLine();
+                System.out.println(operation);
                 var message = reader.readLine();
                 out.write(message + "\n");
                 out.flush();
