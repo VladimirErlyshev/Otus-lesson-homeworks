@@ -2,11 +2,11 @@ package ru.verlyshev.homeworks.lesson142;
 
 public class Application {
     public static void main(String[] args) throws InterruptedException {
-        firstIml();
-        secondIml();
+        firstImpl();
+        secondImpl();
     }
 
-    private static void firstIml() {
+    private static void firstImpl() {
         var start = System.currentTimeMillis();
         var arr = new double[100_000_000];
         for (int i = 0; i < arr.length; i++) {
@@ -16,7 +16,7 @@ public class Application {
         System.out.println(end - start);
     }
 
-    private static void secondIml() throws InterruptedException {
+    private static void secondImpl() throws InterruptedException {
         var start = System.currentTimeMillis();
         var arr = new double[100_000_000];
         var t1 = new Thread(() -> {
