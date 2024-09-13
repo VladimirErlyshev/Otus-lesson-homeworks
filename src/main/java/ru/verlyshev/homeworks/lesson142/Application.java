@@ -7,17 +7,17 @@ public class Application {
     }
 
     private static void firstImpl() {
-        var start = System.currentTimeMillis();
+        var start = System.nanoTime();
         var arr = new double[100_000_000];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = calculateElement(i);
         }
-        var end = System.currentTimeMillis();
-        System.out.println(end - start);
+        var end = System.nanoTime();
+        System.out.println("Выполнился за " + (end - start) + " мс");
     }
 
     private static void secondImpl() throws InterruptedException {
-        var start = System.currentTimeMillis();
+        var start = System.nanoTime();
         var arr = new double[100_000_000];
         var t1 = new Thread(() -> {
             for (int i = 0; i < 25_000_000; i++) {
@@ -38,7 +38,7 @@ public class Application {
         });
 
         var t4 = new Thread(() -> {
-            for (int i = 74_000_000; i < arr.length; i++) {
+            for (int i = 75_000_000; i < arr.length; i++) {
                 arr[i] = calculateElement(i);
             }
         });
@@ -52,8 +52,8 @@ public class Application {
         t3.join();
         t4.join();
 
-        var end = System.currentTimeMillis();
-        System.out.println(end - start);
+        var end = System.nanoTime();
+        System.out.println("Выполнился за " + (end - start) + " мс");
     }
 
     private static double calculateElement(int i) {
