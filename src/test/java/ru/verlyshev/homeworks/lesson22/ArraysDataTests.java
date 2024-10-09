@@ -13,12 +13,10 @@ import java.util.stream.Stream;
 
 class ArraysDataTests {
     private ArraysData arraysData;
-    private Random random;
 
     @BeforeEach
     void init() {
         arraysData = new ArraysData();
-        random = new Random();
     }
 
     static Stream<Arguments> testArrayConsistsOnlyOf1and2ReturnFalse() {
